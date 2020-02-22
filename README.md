@@ -1,0 +1,1 @@
+# EgyptJS - Meteor Example App
