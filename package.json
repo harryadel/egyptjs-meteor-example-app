@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.6.3",
-    "meteor-node-stubs": "^0.4.1",
+    "meteor-node-stubs": "^1.0.0",
     "prettier": "^1.18.2",
     "react": "^16.10.2",
     "react-dom": "^16.10.2"
@@ -23,7 +23,6 @@
   },
   "devDependencies": {
     "@pathable/eslint-config-pathable": "^1.0.19",
-    "@testing-library/cypress": "^5.0.2",
     "babel-eslint": "^8.2.2",
     "eslint": "^4.19.1"
   }
