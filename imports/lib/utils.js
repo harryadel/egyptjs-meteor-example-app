@@ -1,5 +1,5 @@
 /**
- * Promised version of meteor call method
+ * Promisfiyed version of meteor call method
  * @param {string} method
  * @param  {...any} args
  */
