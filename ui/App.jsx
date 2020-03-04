@@ -4,16 +4,18 @@ import { useTracker } from 'meteor/react-meteor-data';
 import { Message } from '../collections/message';
 import { ChatMessage } from './ChatMessage.jsx';
 import { Form } from './Form.jsx';
+import { meteorCall } from '../imports/lib/utils';
 
 export const App = () => {
   const onSubmit = event => {
     event.preventDefault();
     const form = event.target;
     const message = event.target.message.value;
-    Meteor.call('message.insert', { message }, (error, result) => {
-      console.log(error, result);
-    });
-    form.reset();
+    /* eslint-disable no-console */
+    meteorCall('message.insert', { message })
+      .then(res => console.log(res))
+      .catch(err => console.log(err))
+      .finally(form.reset);
   };
 
   const messagesLoading = useTracker(() => {

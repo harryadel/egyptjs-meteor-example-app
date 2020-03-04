@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Form } from './Form';
+import { meteorCall } from '../imports/lib/utils';
 
 export const ChatMessage = ({ message }) => {
   const [showInputField, setShowInputField] = useState(false);
@@ -7,15 +8,10 @@ export const ChatMessage = ({ message }) => {
   const onSubmit = event => {
     event.preventDefault();
     const newMessage = event.target.message.value;
-    Meteor.call(
-      'message.edit',
-      { _id: message._id, message: newMessage },
-      (error, result) => {
-        if (!error) {
-          setShowInputField(false);
-        }
-      }
-    );
+    meteorCall('message.edit', {
+      _id: message._id,
+      message: newMessage,
+    }).then(() => setShowInputField(false));
   };
 
   return (
